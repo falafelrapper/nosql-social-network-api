@@ -6,13 +6,17 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
+      trim: true,
       unique: true,
-      trim: true
     },
     email: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
+      validate: {
+        validator: val => /^(([^<>()[\]\.,;:\s@"]+(\.[^<>()[\]\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val),
+        message: 'Invalid email.'
+      },
     },
     thoughts: [
       {
