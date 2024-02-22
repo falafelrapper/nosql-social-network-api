@@ -6,7 +6,8 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
+      trim: true
     },
     email: {
       type: String,
@@ -22,7 +23,8 @@ const userSchema = new Schema(
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Users'
+        ref: 'Users',
+        default: [],
       },
     ]
   },
@@ -37,7 +39,7 @@ const userSchema = new Schema(
 userSchema
   .virtual('friendCount')
   .get(function () {
-    return this.friends.length;
+    return this.friends ? this.friends.length : 0;
   });
 
 // Initialize our User model

@@ -27,7 +27,7 @@ connection.once('open', async () => {
     const thoughts = getRandomThoughts(2);
 
     const username = getRandomName();
-    const email = getRandomEmail();
+    const email = getRandomEmail().replace('@', `${i}@`);
     const friends = getRandomName(2);
 
     users.push({

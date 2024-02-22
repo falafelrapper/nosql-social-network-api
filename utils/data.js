@@ -43,7 +43,7 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 // Gets a random full name
 const getRandomName = () =>
   `${getRandomArrItem(usernames)}`;
-
+  
 const getRandomEmail = () =>
   `${getRandomArrItem(emails)}`;
 
