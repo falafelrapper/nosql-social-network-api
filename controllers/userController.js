@@ -15,7 +15,7 @@ module.exports = {
 
   async getSingleUser(req, res) {
     try {
-      const user = await User.findOne({ _id: req.params._id })
+      const user = await User.findOne({ _id: req.params.userId })
         .select('-__v');
 
       if (!user) {
@@ -46,7 +46,7 @@ module.exports = {
         return res.status(404).json({ message: 'No such user exists' });
       }
 
-      await Thought.deleteMany({ _id: { $in: thoughts } });
+      await Thought.deleteMany({ _id: { $in: user.thoughts } });
 
       res.json({ message: 'User successfully deleted' });
     } catch (err) {

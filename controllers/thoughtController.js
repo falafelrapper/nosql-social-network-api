@@ -1,4 +1,4 @@
-const { Thought, User } = require('../models');
+const { Thought } = require('../models');
 
 module.exports = {
 
@@ -38,7 +38,7 @@ module.exports = {
 
   async deleteThought(req, res) {
     try {
-      const thought = await Thought.findOneAndDelete({ _id: req.params._id });
+      const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
 
       if (!thought) {
         res.status(404).json({ message: 'No thought with that ID' });
@@ -53,7 +53,7 @@ module.exports = {
   async updateThought(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
-        { _id: req.params._id },
+        { _id: req.params.thoughtId },
         { $set: req.body },
         { runValidators: true, new: true }
       );
