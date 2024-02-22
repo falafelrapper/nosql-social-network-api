@@ -16,7 +16,7 @@ const emails = [
   'reactman@gmail.com'
 ]
 
-const appDescriptions = [
+const thoughts = [
   'Decision Tracker',
   'Find My Phone',
   'Learn Piano',
@@ -49,7 +49,7 @@ const getRandomThoughts = (int) => {
   const results = [];
   for (let i = 0; i < int; i++) {
     results.push({
-      thoughtText: getRandomArrItem(appDescriptions)
+      thoughtText: getRandomArrItem(thoughts)
     });
   }
   return results;
