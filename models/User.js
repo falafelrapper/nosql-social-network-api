@@ -7,7 +7,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       trim: true,
-      unique: true,
+      // unique: true,
     },
     email: {
       type: String,
@@ -28,7 +28,6 @@ const userSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        default: [],
       },
     ]
   },
@@ -47,6 +46,6 @@ userSchema
   });
 
 // Initialize our User model
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

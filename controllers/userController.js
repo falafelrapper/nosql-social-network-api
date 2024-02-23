@@ -22,7 +22,7 @@ module.exports = {
         return res.status(404).json({ message: 'No user with that ID' })
       }
 
-      res.json({user});
+      res.json({ user });
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);
@@ -74,16 +74,16 @@ module.exports = {
 
 
   async addFriend(req, res) {
-    console.log('You are adding an assignment');
-    console.log(req.body);
+    console.log('You are adding an friend');
+    console.log(req.params.friendId);
 
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $addToSet: { friends: req.body } },
+        { $addToSet: { friends: req.params.friendId } },
         { runValidators: true, new: true }
       );
-
+      console.log(user)
       if (!user) {
         return res
           .status(404)
