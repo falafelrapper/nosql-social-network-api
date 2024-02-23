@@ -28,7 +28,11 @@ module.exports = {
 
   async createThought(req, res) {
     try {
-      const thought = await Thought.create(req.body);
+      const thoughtData = {
+        ...req.body, 
+        userId: req.body.userId
+      };
+      const thought = await Thought.create(thoughtData);
       res.json(thought);
     } catch (err) {
       console.log(err);
