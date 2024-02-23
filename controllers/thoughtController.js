@@ -13,7 +13,7 @@ module.exports = {
 
   async getSingleThought(req, res) {
     try {
-      const thought = await Thought.findOne({ _id: req.params.courseId })
+      const thought = await Thought.findOne({ _id: req.params.thoughtId })
         .select('-__v');
 
       if (!thought) {
@@ -52,7 +52,7 @@ module.exports = {
         res.status(404).json({ message: 'No thought with that ID' });
       }
 
-      res.json({ message: 'Course and students deleted!' });
+      res.json({ message: 'Thought deleted!' });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -67,7 +67,7 @@ module.exports = {
       );
 
       if (!thought) {
-        res.status(404).json({ message: 'No course with this id!' });
+        res.status(404).json({ message: 'No thought with this id!' });
       }
 
       res.json(thought);
@@ -76,7 +76,7 @@ module.exports = {
     }
   },
   async createReaction(req, res) {
-    console.log('You are adding an assignment');
+    console.log('You are adding a reaction');
     console.log(req.body);
 
     try {
@@ -89,7 +89,7 @@ module.exports = {
       if (!thought) {
         return res
           .status(404)
-          .json({ message: 'No student found with that ID :(' });
+          .json({ message: 'No reaction found with that ID :(' });
       }
 
       res.json(thought);
@@ -102,14 +102,14 @@ module.exports = {
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reaction: { reactionId: req.params.reactionId } } },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       );
 
       if (!thought) {
         return res
           .status(404)
-          .json({ message: 'No reaction found with that ID :(' });
+          .json({ message: 'No thought found with that ID :(' });
       }
 
       res.json(thought);

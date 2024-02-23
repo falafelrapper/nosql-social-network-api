@@ -44,7 +44,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## The Completed Challenge
 
-After completing the challenge, we should now have a functioning back end server with functionality to GET, POST, PUT, and DELETE items in our MongoDB database. You can view an instructional demo to this backend [here](https://drive.google.com/file/d/1Mru9lItz3Z5eN29efBvXF0iiOpU978SJ/view?usp=sharing)!
+After completing the challenge, we should now have a functioning back end server with functionality to GET, POST, PUT, and DELETE items in our MongoDB database. You can view an instructional demo to this backend [here](https://drive.google.com/file/d/1lCtxvnph5ue5My68xT8hyNktDCNrFOJe/view?usp=sharing)!
 
 ## Credits
 This refactor was completed by Zachary Roy
